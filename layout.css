@@ -14,42 +14,33 @@ h1{
 
 }
 
+.btnRef {
+     background: #3D94F6;
+}
 
-   #left-container{
-  background-color: #ff9e2c;
+   .tweet{
+
   float: left;
-  width: 50%;
+  font-site: 50%;
     }
 
-    #right-container{
+    .time{
 
-    background-color: #ff9e2c;
-    float: right;
-    width: 50%;
+
+    font-size: 20%;
+    float: inline-end;
+
 
       }
 
-    .user{
-      color: yellow;
-      display: inline;
-      font-weight: normal
 
-    }
-    .tweet{
-      display: inline;
-      font-family: sans-serif;
+.nTweet{
+  float: left;
+  font-site: 50%;
+}
 
-    }
 
-    .main{
-      color: red;
-      display: inline-block;
 
-    }
-    .newsFeed{
-      color: green
-
-    }
     .title{
       color: rgb(24, 21, 21);
       font-size: 100px;
