@@ -1,12 +1,12 @@
 
 body{
-  background-color: lightgrey;
+  background-color: greenyellow;
 }
 
 
 
 
-.title{
+h1{
   text-align: center;
   font-size: auto;
   color: seagreen
@@ -19,7 +19,7 @@ body{
       margin: auto;
 
     }
-    .title{
+    title{
       color: violet
       font-family: "Verdana"
       font-size: 100px;
@@ -54,20 +54,18 @@ body{
     }
     .title{
       color: brown;
-      font-size: 500px;
+      font-size: 100px;
       font-weight: normal;
     }
-    .twidd{
+    #tweets{
+      color: red;
       font-family: "Times New Roman", Times, serif;
-      font-size: 24px;
-      border: 6px solid #0CA4A2;
-      border-radius: 29px;
-
     }
+
     .main{}
 
 
-    .button{
+    #refreshTweet{
       .myButton {
         color: rgb(255, 171, 29); font-size: 17px; line-height: 17px; padding: 12px; border-radius: 19px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: radial-gradient(at center center, rgb(51, 22, 71) 0%, rgb(24, 50, 117) 100%); box-shadow: rgb(0, 0, 0) -100px -100px 15px 13px; border: 2px solid rgb(28, 110, 164); display: inline-block;}
         .myButton:hover {
