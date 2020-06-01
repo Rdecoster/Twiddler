@@ -10,7 +10,7 @@ streams.users = {};
 streams.users.shawndrost = [];
 streams.users.sharksforcheap = [];
 streams.users.mracus = [];
-streams.users.billFmurray = [];
+streams.users.bill_F_murray = [];
 streams.users.douglascalhoun = [];
 window.users = Object.keys(streams.users);
 
@@ -66,5 +66,10 @@ var writeTweet = function(message){
   var tweet = {};
   tweet.user = visitor;
   tweet.message = message;
+  tweet.created_at = $($newTweet).livestamp(new Date())
   addTweet(tweet);
 };
+
+var addTimeStamp = function(input){
+  return $newTweet.attr( 'data-livestamp',new Date().toUTCString()).appendTo(input);
+}
