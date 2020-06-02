@@ -14,6 +14,7 @@ h1{
 
 }
 
+<<<<<<< HEAD
 .btnRef {
      background: #3D94F6;
   position: fixed;
@@ -34,11 +35,29 @@ h1{
 
     font-size: 5px
     float: inline-end;
+=======
 
+   #left-container{
+  background-color: #ff9e2c;
+  float: left;
+  width: 50%;
+    }
+
+    #right-container{
+>>>>>>> parent of 8ad7c24...  Refactored code to only use JS and JQ, Created generate button but not working as inteded
+
+    background-color: #ff9e2c;
+    float: right;
+    width: 50%;
 
       }
 
+    .user{
+      color: yellow;
+      display: inline;
+      font-weight: normal
 
+<<<<<<< HEAD
 
       .ntime{
 
@@ -54,9 +73,24 @@ h1{
   float: left;
   font-site: 12px
 }
+=======
+    }
+    .tweet{
+      display: inline;
+      font-family: sans-serif;
 
+    }
+>>>>>>> parent of 8ad7c24...  Refactored code to only use JS and JQ, Created generate button but not working as inteded
 
+    .main{
+      color: red;
+      display: inline-block;
 
+    }
+    .newsFeed{
+      color: green
+
+    }
     .title{
       color: rgb(24, 21, 21);
       font-size: 100px;
