@@ -16,27 +16,43 @@ h1{
 
 .btnRef {
      background: #3D94F6;
+  position: fixed;
+    top: 20px;
+    right: 100px
+
 }
 
    .tweet{
 
-  float: left;
-  font-site: 50%;
-    }
+    float: left;
+    font-site: 12px
+  }
+
 
     .time{
 
 
-    font-size: 20%;
+    font-size: 5px
     float: inline-end;
 
 
       }
 
 
+
+      .ntime{
+
+
+        font-size: 5px
+        float: inline-end;
+
+
+          }
+
+
 .nTweet{
   float: left;
-  font-site: 50%;
+  font-site: 12px
 }
 
 
