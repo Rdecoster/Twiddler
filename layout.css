@@ -6,7 +6,7 @@ body{
 
 
 
-
+/*
 h1{
   text-align: center;
   font-size: auto;
@@ -14,14 +14,13 @@ h1{
 
 }
 
-<<<<<<< HEAD
-.btnRef {
+/* .btnRef {
      background: #3D94F6;
   position: fixed;
     top: 20px;
     right: 100px
 
-}
+} */
 
    .tweet{
 
@@ -35,16 +34,6 @@ h1{
 
     font-size: 5px
     float: inline-end;
-=======
-
-   #left-container{
-  background-color: #ff9e2c;
-  float: left;
-  width: 50%;
-    }
-
-    #right-container{
->>>>>>> parent of 8ad7c24...  Refactored code to only use JS and JQ, Created generate button but not working as inteded
 
     background-color: #ff9e2c;
     float: right;
@@ -57,7 +46,6 @@ h1{
       display: inline;
       font-weight: normal
 
-<<<<<<< HEAD
 
       .ntime{
 
@@ -73,14 +61,6 @@ h1{
   float: left;
   font-site: 12px
 }
-=======
-    }
-    .tweet{
-      display: inline;
-      font-family: sans-serif;
-
-    }
->>>>>>> parent of 8ad7c24...  Refactored code to only use JS and JQ, Created generate button but not working as inteded
 
     .main{
       color: red;
@@ -101,3 +81,46 @@ h1{
       font-family: "Times New Roman", Times, serif;
     }
 
+
+
+
+
+
+    .wrapper {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color: skyblue;
+
+    }
+
+    .mainbody{
+      width: 11024px;
+      height: auto;
+      overflow: hidden;
+      background-color: skyblue
+    }
+
+    .colfeed{
+      background-color: darkgrey;
+      width: 50%;
+      height: auto;
+      float: left;
+
+    }
+
+    .coluser{
+      background-color: turquoise;
+      background-color: darkgrey;
+      width: 50%;
+      height: auto;
+      float: right;
+
+    }
+
+    .buttonPan{
+      width: 100%;
+      height: 50px;
+      overflow: hidden;
+      background-color: coral;
+    } */
