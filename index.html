@@ -24,6 +24,8 @@
         // $body.html('');
 
 
+
+
 // generate random tweets on open.
         var index = streams.home.length - 1;
         while(index >= 0){
@@ -34,14 +36,16 @@
           var $tweet = $('<div class="tweet"></div>');
           var $box = $('<div class="msgbox"></div>');
           var $user = $('<span class=user></span>');
+          var $message =$('<span class=message></span>')
 
-              $tweet.text('@' + tweet.user + ': ' + tweet.message + ': ' +tweet.created_at);
+              // $tweet.text('@' + tweet.user + ': ' + tweet.message + ': ' +tweet.created_at);
 
 
-            $tweet.appendTo($body);
-            $tweet.addClass(tweet.user).attr('data-user', tweet.user).appendTo($tweet)
-            $box.appendTo($newsFeed);
-            $tweet.appendTo($box);
+            $tweet.appendTo($newsFeed);
+            $user.addClass(tweet.user).attr('data-user', tweet.user).text('@' + tweet.user +' ').appendTo($tweet)
+
+            $message.text(tweet.message + ' ' + tweet.created_at).appendTo($tweet)
+
 
 
           index -= 1;
@@ -59,162 +63,65 @@
        // Generattes new tweets.
             var tweet = streams.home.pop();
             // var newTweet = streams.home[index];
-            var newTime = streams.home[index];
 
-          var $ntweet = $('<div class="msgbox"><div class="tweet"></div></div>');
 
+          var $ntweet = $('<div class="tweet"></div>');
+          var $nmessage =$('<span class=message></span>')
           var $nuser = $('<span class=user></span>');
 
-              $ntweet.text('@' + tweet.user + ': ' + tweet.message + ': ' +tweet.created_at);
+            //   $ntweet.text('@' + tweet.user + ': ' + tweet.message + ': ' +tweet.created_at);
 
-            $ntweet.appendTo($body);
+            // $ntweet.appendTo($body);
+            // $ntweet.appendTo($newsFeed);
+
+
             $ntweet.appendTo($newsFeed);
+            $nuser.addClass(tweet.user).attr('data-user', tweet.user).text('@' + tweet.user +' ').appendTo($ntweet)
+            $nmessage.text(tweet.message + ' ' + tweet.created_at).appendTo($ntweet)
 
 
 
-              })
+            //mouse event user highlight.
 
-              $('.tweet').on('mouseover', '.tweet', function(){
-          $(this).addClass('highlight');
+
+        $('.tweet' ).on("mouseover",".user", function( ) {
+          event.preventDefault();
+        $(this).css("background-color", "green");
+          });
+
+          $('.tweet').on("mouseout",".user", function( ) {
+
+          $(this).css('background-color', 'white')
+          });
+
+
+        var $timeline = $('<div class=timeline></>');
+        $timeline.css("float", "left")
+          $('.tweet' ).on("click",".user", function( ) {
+          event.preventDefault();
+        var user = $(this).data('user');
+        $timeline.appendTo($newsFeed)
+        $('.tweet').not("div:contains('" + user + ")").hide(100);
+        $("div:contains('" + user +"')").show(100);
         });
 
+      })
+      // ('.tweet' ).on("mouseover",".user", function( ) {
+      //     // event.preventDefault();
+      //   $(this).css("background-color", "green");
+      //     });
+
+      //     $('.tweet').on("mouseout",".user", function( ) {
+      //       // event.preventDefault();
+      //     $(this).css('background-color', 'white')
+      //     });
 
 
 
-
-
-
-
-       })
+       });
 
       // });
 
     </script>
   </body>
 </html>
-
-
-
-
-<!--
-$main =$('<div class=mainbody></div>')
-$feed = $('<div class=feed></div>')
-$users = $('<div class=users></div>')
-$button =$('<div class=buttons></div>')
-
-
-  // var $tweet = $('<div class="tweet"></div>');
-  // var $tweet = $('<div class="tweet" id ="tweet"></div>');
-  // var $user = $('<span>class=user</span>');
-  // var $newFeed = $('<div>class=feed</div>');
-// generate random tweets on open.
-var index = streams.home.length - 1;
-while(index >= 0){
-
-    var tweet = streams.home[index];
-    var time = streams.home[index];
-
-  // var $feed = $('<div>class=feed</div>');
-  // var $tweet = $('<div>class=tweet</div>');
-  // var $time = $('<span> class=time</span>');
-  // var $user = $('<span>class=user</span>');
-  //Alt coding for style
-
-  //Was taking advantage of look to create unique ID Tags
-
-  // var $feed = $('<div>class=feed</div>');
-  // var $time = $('<span class="time" id ="time"' +index + '></span>');
-  //
-  var $tweet = $('<div class="tweet"></div>');
-
-  var $user = $('<span class=user></span>');
-  var $newFeed = $('<div class=feed></div>');
-      $tweet.text('@' + tweet.user + ': ' + tweet.message + ': ' +tweet.created_at);
-      $tweet.appendTo($body);
-      $(".tweet").appendTo(".feed")
-
-
-      //Add to above use make use of alt code.
-      $(".tweet").appendTo(".feed")
-
-
-  index -= 1;
-
-}
-  //Generating button and New Tweet
-var $button = $("<input class='btnRef' type=button value=' New Tweet'>");
-$button.appendTo($body);
-$button.on('click', function () {
-  generateRandomTweet();
- //Index adder
-  // var index1 = 100;
-  // index1 = index1 +1;
-
- // Generattes new tweets.
-  var tweet = streams.home.pop();
-
-    var newTweet = streams.home[index];
-    var newTime = streams.home[index];
-    var $newFeed = $('<div class=feed></div>');
-
-    var $newTweet = $('<div class=tweet></div>');
-    var $newUser = $('<span class=user></span>');
-
-      $newTweet.text('@' + tweet.user + ': ' + tweet.message + ': ' +tweet.created_at);
-      $newTweet.appendTo($body);
-      $(".tweet").appendTo(".feed")
-
-
-// user timeline
-
-$('.tweets').on('click', '.tweet .user', function(event){
-  event.preventDefault();
-
-  var user = $(this).data('user');
-
-  $('.timeline').remove();
-  var $timeline = $('<h1 class=timeline>'+ user +'\'s Timeline</h1>');
-  $timeline.prependTo($body);
-  $('.new').hide();
-  $homeButton.show(400);
-
-  $('.tweet').not("div:contains('" + user + "')").hide(400);
-  $("div:contains('" + user + "')").show(400);
-
-});
-
-
-    //  Alt style to arrange Time and tweets
-    //  var $newTime = $('<span class="nTime" id ="time"' +index1 + '></span>');
-    //  var $newTweet = $('<div class="nTweet" id ="tweet"' +index1 + '></div>');
-
-    // Acompaning Apends for alt styling using nested id's Avove
-    //   $newTweet.text('@' + tweet.user + ': ' + tweet.message);
-    //   $newTweet.appendTo($body);
-    //   $newTime.text(tweet.created_at);
-    //   $newTime.appendTo($tweet);
-    //   // $(".nTweet").appendTo(".container")
-    //   $("#" + index).appendTo("#feed" + index1);
-
-
-      })
-
-//       $('.tweets').on('mouseover', '.tweet .user', function(){
-//   $(this).addClass('highlight');
-// });
-
-// $('.tweets').on('mouseleave', '.tweet .user', function(){
-//   $(this).removeClass('highlight');
-// });
-
-
-
-
-
-
-
-
-
-})
-
-// }); -->
