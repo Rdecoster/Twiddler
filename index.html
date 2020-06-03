@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <link rel="stylesheet" href="layout.css">
     <script src="jquery.js"></script>
@@ -38,6 +39,7 @@
 
 
             $tweet.appendTo($body);
+            $tweet.addClass(tweet.user).attr('data-user', tweet.user).appendTo($tweet)
             $box.appendTo($newsFeed);
             $tweet.appendTo($box);
 
@@ -56,7 +58,7 @@
 
        // Generattes new tweets.
             var tweet = streams.home.pop();
-            var newTweet = streams.home[index];
+            // var newTweet = streams.home[index];
             var newTime = streams.home[index];
 
           var $ntweet = $('<div class="msgbox"><div class="tweet"></div></div>');
@@ -72,14 +74,9 @@
 
               })
 
-        //       $('.tweets').on('mouseover', '.tweet .user', function(){
-        //   $(this).addClass('highlight');
-        // });
-
-        // $('.tweets').on('mouseleave', '.tweet .user', function(){
-        //   $(this).removeClass('highlight');
-        // });
-
+              $('.tweet').on('mouseover', '.tweet', function(){
+          $(this).addClass('highlight');
+        });
 
 
 
