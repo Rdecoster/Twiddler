@@ -96,14 +96,19 @@
 
 
         var $timeline = $('<div class=timeline></>');
-        $timeline.css("float", "left")
+
           $('.tweet' ).on("click",".user", function( ) {
           event.preventDefault();
         var user = $(this).data('user');
-        $timeline.appendTo($newsFeed)
-        $('.tweet').not("div:contains('" + user + ")").hide(100);
-        $("div:contains('" + user +"')").show(100);
+        $timeline.appendTo($selUser)
+        $('.tweet').not("div:contains('" + user + ")").show(100).appendTo($body)
+        $("div:contains('" + user +"')").show(100).appendTo($selUser);;
         });
+
+
+
+
+
 
 
           //Generating button and New Tweet
