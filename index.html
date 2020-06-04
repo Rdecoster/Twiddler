@@ -20,10 +20,10 @@
       $(document).ready(function(){
         var $body = $('body');
         var $newsFeed = $('<div class=feed></div>');
-        var $selUser= $('<div class=userfeed><p>Friend Feed</p></div>');
-        $selUser.appendTo($body);
         $newsFeed.appendTo($body);
         // $body.html('');
+        var $userFeed = $('<div class=ufeed></div>');
+        $userFeed.appendTo($body);
 
 
 
@@ -80,7 +80,6 @@
 
 
 
-
             //mouse event user highlight.
 
 
@@ -96,23 +95,18 @@
 
 
         var $timeline = $('<div class=timeline></>');
-
+        $timeline.css("float", "left")
           $('.tweet' ).on("click",".user", function( ) {
           event.preventDefault();
         var user = $(this).data('user');
-        $timeline.appendTo($selUser)
-        $('.tweet').not("div:contains('" + user + ")").show(100).appendTo($body)
-        $("div:contains('" + user +"')").show(100).appendTo($selUser);;
+        $timeline.appendTo($newsFeed)
+        $('.tweet').not("div:contains('" + user + ")").appendTo($userFeed)
+        $("div:contains('" + user +"')").appendTo($newsFeed)
         });
 
 
-
-
-
-
-
           //Generating button and New Tweet
-          var $button = $("<input class='tweetBtn' type=button value=' Home Feed'>");
+          var $button = $("<input class='btnhome' type=button value=' Home Feed'>");
         $button.appendTo($body);
         $button.on('click', function () {
 
@@ -130,6 +124,8 @@
 
 
        });
+
+      });
 
       // });
 
