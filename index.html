@@ -77,7 +77,7 @@
             $ntweet.appendTo($newsFeed);
             $nuser.addClass(tweet.user).attr('data-user', tweet.user).text('@' + tweet.user +' ').appendTo($ntweet)
             $nmessage.text(tweet.message + ' ' + tweet.created_at).appendTo($ntweet)
-        })
+
 
 
 
@@ -112,7 +112,7 @@
 
 
           //Generating button and New Tweet
-          var $button = $("<input class='btnhome' type=button value=' Home Feed'>");
+          var $button = $("<input class='tweetBtn' type=button value=' Home Feed'>");
         $button.appendTo($body);
         $button.on('click', function () {
 
