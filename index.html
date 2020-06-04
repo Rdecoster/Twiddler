@@ -94,39 +94,39 @@
           });
 
 
-        var $timeline = $('<div class=timeline></>');
-        $timeline.css("float", "left")
+
+
           $('.tweet' ).on("click",".user", function( ) {
           event.preventDefault();
         var user = $(this).data('user');
-        $timeline.appendTo($newsFeed)
-        $('.tweet').not("div:contains('" + user + ")").appendTo($userFeed)
-        $("div:contains('" + user +"')").appendTo($newsFeed)
-        });
 
 
-          //Generating button and New Tweet
-          var $button = $("<input class='btnhome' type=button value=' Home Feed'>");
-        $button.appendTo($body);
-        $button.on('click', function () {
+        $('.tweet').not("div:contains('" + user + ")").appendTo($body)
+        $("div:contains('" + user +"')").appendTo($userFeed)
 
-      })
-      ('.tweet' ).on("mouseover",".user", function( ) {
-          // event.preventDefault();
-        $(this).css("background-color", "green");
-          });
 
-          $('.tweet').on("mouseout",".user", function( ) {
-            // event.preventDefault();
-          $(this).css('background-color', 'white')
-          });
+      //     //Generating button and New Tweet
+      //     var $button = $("<input class='btnhome' type=button value=' Home Feed'>");
+      //   $button.appendTo($body);
+      //   $button.on('click', function () {
+
+      // })
+      // ('.tweet' ).on("mouseover",".user", function( ) {
+      //     // event.preventDefault();
+      //   $(this).css("background-color", "green");
+      //     });
+
+      //     $('.tweet').on("mouseout",".user", function( ) {
+      //       // event.preventDefault();
+      //     $(this).css('background-color', 'white')
+      //     });
 
 
 
        });
 
       });
-
+      });
       // });
 
     </script>
