@@ -47,6 +47,7 @@
             $user.addClass(tweet.user).attr('data-user', tweet.user).text('@' + tweet.user +' ').appendTo($tweet)
 
             $message.text(tweet.message + ' ' + tweet.created_at).appendTo($tweet);
+            $tweet.appendTo($newsFeed);
           index -= 1;
 
         }
@@ -70,8 +71,8 @@
 
             //   $ntweet.text('@' + tweet.user + ': ' + tweet.message + ': ' +tweet.created_at);
 
-            // $ntweet.appendTo($body);
-            // $ntweet.appendTo($newsFeed);
+            $ntweet.appendTo($body);
+            $ntweet.appendTo($newsFeed);
 
 
             $ntweet.appendTo($newsFeed);
@@ -102,24 +103,24 @@
 
 
         $('.tweet').not("div:contains('" + user + ")").appendTo($body)
-        $("div:contains('" + user +"')").appendTo($userFeed)
+        $("div:contains('" + user +"')").appendTo('.tweet')
 
 
       //     //Generating button and New Tweet
       //     var $button = $("<input class='btnhome' type=button value=' Home Feed'>");
       //   $button.appendTo($body);
-      //   $button.on('click', function () {
+        $button.on('click', function () {
 
-      // })
-      // ('.tweet' ).on("mouseover",".user", function( ) {
-      //     // event.preventDefault();
-      //   $(this).css("background-color", "green");
-      //     });
+      })
+      ('.tweet' ).on("mouseover",".user", function( ) {
+          // event.preventDefault();
+        $(this).css("background-color", "green");
+          });
 
-      //     $('.tweet').on("mouseout",".user", function( ) {
-      //       // event.preventDefault();
-      //     $(this).css('background-color', 'white')
-      //     });
+          $('.tweet').on("mouseout",".user", function( ) {
+            // event.preventDefault();
+          $(this).css('background-color', 'white')
+          });
 
 
 
