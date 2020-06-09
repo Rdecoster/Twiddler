@@ -7,7 +7,7 @@
     <script src="data_generator.js"></script>
   </head>
   <body>
-
+      <h1 class="header">Ryan's Twiddler</h1>
 
       </div>
     </div>
@@ -20,6 +20,8 @@
         // $body.html('');
         var $userFeed = $('<div class=ufeed></div>');
         $userFeed.appendTo($body);
+
+        //function for my highlighter /Click listener
         var highlighter =function(){
 
                   $('.tweet' ).on("mouseover",".user", function( ) {
@@ -38,9 +40,10 @@
                   var user = $(this).data('user');
 
 
-                  $('.tweet').not("div:contains('" + user + ")").appendTo($body)
+                  $('.tweet').not("div:contains('" + user + ")").appendTo('.feed')
                   $("div:contains('" + user +"')").appendTo($userFeed)
-
+                  $newsFeed.appendTo($body)
+                  $button.appendTo('.header')
                   });
 
                       }
@@ -75,7 +78,7 @@
 
           //Generating button and New Tweet
         var $button = $("<input class='btnRef' type=button value=' New Tweet'>");
-        $button.appendTo($body);
+        $button.appendTo('.header');
         $button.on('click', function () {
           generateRandomTweet();
 
@@ -94,11 +97,12 @@
             // $ntweet.appendTo($newsFeed);
 
 
-            $ntweet.appendTo($newsFeed);
+            $ntweet.prependTo($newsFeed);
             $nuser.addClass(tweet.user).attr('data-user', tweet.user).text('@' + tweet.user +' ').appendTo($ntweet)
             $nmessage.text(tweet.message + ' ' + tweet.created_at).appendTo($ntweet)
 
             highlighter();
+            $button.appendTo('.header')
 
           });
 

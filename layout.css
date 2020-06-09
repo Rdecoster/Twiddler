@@ -23,9 +23,9 @@ word-wrap: break-word
 
 
 .btnRef{
-  position:relative
+ float: right;
   right:    0;
-  top:   0;
+  top:  100;
 
 }
 
