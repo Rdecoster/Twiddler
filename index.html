@@ -8,11 +8,7 @@
   </head>
   <body>
 
-    <!-- <div class="wrapper"></divclass>
-      <div class="mainbody">
-          <div class="colfeed"></div>
-          <div class="colusers"></div>
-          <div class="buttonPan"></div> -->
+
       </div>
     </div>
     <script>
@@ -24,7 +20,30 @@
         // $body.html('');
         var $userFeed = $('<div class=ufeed></div>');
         $userFeed.appendTo($body);
+        var highlighter =function(){
 
+                  $('.tweet' ).on("mouseover",".user", function( ) {
+                    event.preventDefault();
+                  $(this).css("background-color", "green");
+                    });
+
+                    $('.tweet').on("mouseout",".user", function( ) {
+
+                    $(this).css('background-color', 'white')
+                    });
+
+
+                    $('.tweet' ).on("click",".user", function( ) {
+                    event.preventDefault();
+                  var user = $(this).data('user');
+
+
+                  $('.tweet').not("div:contains('" + user + ")").appendTo($body)
+                  $("div:contains('" + user +"')").appendTo($userFeed)
+
+                  });
+
+                      }
 
 
 
@@ -49,6 +68,7 @@
             $message.text(tweet.message + ' ' + tweet.created_at).appendTo($tweet);
           index -= 1;
 
+          highlighter();
         }
 
 
@@ -78,32 +98,12 @@
             $nuser.addClass(tweet.user).attr('data-user', tweet.user).text('@' + tweet.user +' ').appendTo($ntweet)
             $nmessage.text(tweet.message + ' ' + tweet.created_at).appendTo($ntweet)
 
+            highlighter();
+
+          });
 
 
             //mouse event user highlight.
-
-
-        $('.tweet' ).on("mouseover",".user", function( ) {
-          event.preventDefault();
-        $(this).css("background-color", "green");
-          });
-
-          $('.tweet').on("mouseout",".user", function( ) {
-
-          $(this).css('background-color', 'white')
-          });
-
-
-
-
-          $('.tweet' ).on("click",".user", function( ) {
-          event.preventDefault();
-        var user = $(this).data('user');
-
-
-        $('.tweet').not("div:contains('" + user + ")").appendTo($body)
-        $("div:contains('" + user +"')").appendTo($userFeed)
-
 
       //     //Generating button and New Tweet
       //     var $button = $("<input class='btnhome' type=button value=' Home Feed'>");
@@ -125,9 +125,9 @@
 
        });
 
-      });
-      });
-      // });
+
+
+
 
     </script>
   </body>
