@@ -21,7 +21,7 @@
         var $userFeed = $('<div class=ufeed></div>');
         $userFeed.appendTo($body);
 
-        //function for my highlighter /Click listener
+        //function for my highlighter /Click listener / tweet slecter
         var highlighter =function(){
 
                   $('.tweet' ).on("mouseover",".user", function( ) {
@@ -54,8 +54,8 @@
         var index = streams.home.length - 1;
         while(index >= 0){
 
-            var tweet = streams.home[index];
-            var time = streams.home[index];
+            var tweet = streams.home.pop();
+
 
           var $tweet = $('<div class="tweet"></div>');
           var $box = $('<div class="msgbox"></div>');
@@ -82,32 +82,35 @@
         var $button = $("<input class='btnRef' type=button value=' New Tweet'>");
         $button.appendTo('.header');
         $button.on('click', function () {
-          generateRandomTweet();
-
-       // Generattes new tweets.
-            var tweet = streams.home.pop();
-            // var newTweet = streams.home[index];
-
-
-          var $ntweet = $('<div class="tweet"></div>');
-          var $nmessage =$('<span class=message></span>');
-          var $nuser = $('<span class=user></span>');
-          var $nTimeStamp =$('<i class=tStamp></i>');
-
-            //   $ntweet.text('@' + tweet.user + ': ' + tweet.message + ': ' +tweet.created_at);
-
-            // $ntweet.appendTo($body);
-            // $ntweet.appendTo($newsFeed);
+          // generateRandomTweet();
+          var index = streams.home.length ;
+        while(index >= 0){
+            //break my loop if their is no message in the streams.home
+            if( streams.home[0] === undefined){
+              break
+            }
+            console.log("loop still running")
+        // Generattes new tweets.
+              var tweet = streams.home.pop();
+              // var tweet = generateRandomTweet()
+              // var newTweet = streams.home[index];
 
 
-            $ntweet.appendTo($newsFeed);
-            $nuser.addClass(tweet.user).attr('data-user', tweet.user).text('@' + tweet.user +' ').appendTo($ntweet)
-            $nmessage.text(tweet.message).appendTo($ntweet)
-            $nTimeStamp.text(tweet.created_at).appendTo($ntweet);
-            highlighter();
-            $button.appendTo('.header')
+            var $ntweet = $('<div class="tweet"></div>');
+            var $nmessage =$('<span class=message></span>');
+            var $nuser = $('<span class=user></span>');
+            var $nTimeStamp =$('<i class=tStamp></i>');
 
-          });
+
+              $ntweet.appendTo($newsFeed);
+              $nuser.addClass(tweet.user).attr('data-user', tweet.user).text('@' + tweet.user +' ').appendTo($ntweet)
+              $nmessage.text(tweet.message).appendTo($ntweet)
+              $nTimeStamp.text(tweet.created_at).appendTo($ntweet);
+          }
+        highlighter();
+        // $button.appendTo('.header')
+
+        });
 
 
             //mouse event user highlight.

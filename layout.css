@@ -18,20 +18,22 @@ height: 25px;
 overflow: hidden;
 background-color: whitesmoke;
 font-size: 80%;
-word-wrap: break-word;
+word-wrap: normal;
+border-radius: 15px 15px 15px 15px;
 
 }
 
   .tStamp {
-    float: left;
+    float: right;
     font-size: 25%;
-    word-wrap: normal;
+    word-wrap: inherit;
+    margin: 5px;
   }
 
 .btnRef{
  float: right;
-  right:    0;
-  top:  100;
+  right:    100;
+
 
 }
 
