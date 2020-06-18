@@ -9,18 +9,24 @@ background-color: deepskyblue;
 }
 
 .tweet {
-margin: 20px;
-padding: 20px;
+margin: 10px;
+padding: 10px;
 
-width: 350px;
+width: 320px;
+
 height: 25px;
 overflow: hidden;
 background-color: whitesmoke;
 font-size: 80%;
-word-wrap: break-word
+word-wrap: break-word;
 
 }
 
+  .tStamp {
+    float: left;
+    font-size: 25%;
+    word-wrap: normal;
+  }
 
 .btnRef{
  float: right;

@@ -61,6 +61,7 @@
           var $box = $('<div class="msgbox"></div>');
           var $user = $('<span class=user></span>');
           var $message =$('<span class=message></span>')
+          var $timeStamp =$('<i class=tStamp></i>')
 
               // $tweet.text('@' + tweet.user + ': ' + tweet.message + ': ' +tweet.created_at);
 
@@ -68,7 +69,8 @@
             $tweet.appendTo($newsFeed);
             $user.addClass(tweet.user).attr('data-user', tweet.user).text('@' + tweet.user +' ').appendTo($tweet)
 
-            $message.text(tweet.message + ' ' + tweet.created_at).appendTo($tweet);
+            $message.text(tweet.message).appendTo($tweet);
+            $timeStamp.text(tweet.created_at).appendTo($tweet);
           index -= 1;
 
           highlighter();
@@ -88,8 +90,9 @@
 
 
           var $ntweet = $('<div class="tweet"></div>');
-          var $nmessage =$('<span class=message></span>')
+          var $nmessage =$('<span class=message></span>');
           var $nuser = $('<span class=user></span>');
+          var $nTimeStamp =$('<i class=tStamp></i>');
 
             //   $ntweet.text('@' + tweet.user + ': ' + tweet.message + ': ' +tweet.created_at);
 
@@ -99,8 +102,8 @@
 
             $ntweet.appendTo($newsFeed);
             $nuser.addClass(tweet.user).attr('data-user', tweet.user).text('@' + tweet.user +' ').appendTo($ntweet)
-            $nmessage.text(tweet.message + ' ' + tweet.created_at).appendTo($ntweet)
-
+            $nmessage.text(tweet.message).appendTo($ntweet)
+            $nTimeStamp.text(tweet.created_at).appendTo($ntweet);
             highlighter();
             $button.appendTo('.header')
 
