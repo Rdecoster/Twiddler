@@ -97,7 +97,7 @@
             // $ntweet.appendTo($newsFeed);
 
 
-            $ntweet.prependTo($newsFeed);
+            $ntweet.appendTo($newsFeed);
             $nuser.addClass(tweet.user).attr('data-user', tweet.user).text('@' + tweet.user +' ').appendTo($ntweet)
             $nmessage.text(tweet.message + ' ' + tweet.created_at).appendTo($ntweet)
 
