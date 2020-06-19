@@ -42,15 +42,43 @@
 
 
                   $('.tweet').not("div:contains('" + user + ")").appendTo('.feed')
+
                   $("div:contains('" + user +"')").appendTo($userFeed)
+
+
                   $newsFeed.appendTo($body)
+                  // $newsFeed.remove();
+
                   $button.appendTo('.header')
                   });
+
 
                       }
 
 
+// Regenerate newsFeed after refreshß
+      var regenerateList = function(){
+        var index = streams.home.length - 1;
+              while(index >= 0){
 
+          var tweet = streams.home[index];
+
+
+          var $tweet = $('<div class="tweet"></div>');
+          var $box = $('<div class="msgbox"></div>');
+          var $user = $('<span class=user></span>');
+          var $message =$('<span class=message></span>')
+          var $timeStamp =$('<i class=tStamp></i>')
+
+            $tweet.appendTo($newsFeed);
+            $user.addClass(tweet.user).attr('data-user', tweet.user).text('@' + tweet.user +' ').appendTo($tweet)
+
+            $message.text(tweet.message).appendTo($tweet);
+            $timeStamp.text(tweet.created_at).appendTo($tweet);
+          index -= 1;
+          // deos not add to tweet counter as it regenerates the etnire list
+        }
+      }
 // generate random tweets on open.
         var index = streams.home.length - 1;
         while(index >= 0){
@@ -116,28 +144,9 @@
 
           }
         highlighter();
-        // $button.appendTo('.header')
+
 
         });
-
-
-            //mouse event user highlight.
-
-      //     //Generating button and New Tweet
-      //     var $button = $("<input class='btnhome' type=button value=' Home Feed'>");
-      //   $button.appendTo($body);
-      //   $button.on('click', function () {
-
-      // })
-      // ('.tweet' ).on("mouseover",".user", function( ) {
-      //     // event.preventDefault();
-      //   $(this).css("background-color", "green");
-      //     });
-
-      //     $('.tweet').on("mouseout",".user", function( ) {
-      //       // event.preventDefault();
-      //     $(this).css('background-color', 'white')
-      //     });
 
 
 
@@ -150,3 +159,4 @@
     </script>
   </body>
 </html>
+<!-- Final reviewed to meet minimum requirments for requested changes 6/19/20 -->
