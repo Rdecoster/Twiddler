@@ -1,60 +1,91 @@
 
+.header{
 
+  grid-column: 1;
+  grid-row: 1;
+  float: inline-end;
 
-body { margin: 10px;
-padding: 10px;
+}
+
+body { margin: auto;
+padding: 20px;
 background-color: deepskyblue;
+display: grid;
+grid-gap: 10px ;
+grid-template-columns: 350px
 
 
 }
 
 .tweet {
 margin: 10px;
-padding: 10px;
-
+padding: auto;
 width: 320px;
-
-height: 25px;
+height: auto;
 overflow: hidden;
 background-color: whitesmoke;
 font-size: 80%;
 word-wrap: normal;
-border-radius: 15px 15px 15px 15px;
+border-radius: 8px 8px 8px 8px;
 
 }
 
 
  #userHandel{
-   font-size: small;
+   font-size: small ;
+   grid-column: 1 ;
+   grid-row: 1;
  }
 
 
 img {
+  float: right;
   border-radius: 20px 20px 20px 20px;
+  grid-column: 2 ;
+  grid-row: 1;
+
 }
+
+  .user {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    font-size: medium;
+
+  }
+
+  .message {
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
   .tStamp {
     float: right;
     font-size: 25%;
     word-wrap: inherit;
-    margin: 5px;
+    margin: 10px;
+
   }
 
 .btnRef{
- float: right;
-  right:    100;
 
-
+  grid-column: 1 ;
+   grid-row: 1;
+   float: bottom;
 }
 
 .ufeed{
-  float: right;
-  height: 400px;
+  height: auto;
   width:  400px;
+  grid-column: 2 ;
+  grid-row: 2 ;
+    }
+
+
+
+
+.feed{
+  height: auto;
+  width:  400px;
+  grid-column: 1 ;
+  grid-row: 2 ;
 }
 
-p {
-  padding: 10%;
-  font-family: sans-serif
-
-}

@@ -22,13 +22,13 @@
         var $userFeed = $('<div class=ufeed><h1 class=userfeed>User Feed</h1></div>');
         $userFeed.appendTo($body);
         $('.userfeed').hide();
-        var tweetCounter = 0;
+
 
         //function for my highlighter /Click listener / tweet slecter
         var highlighter =function(){
 
                   $('.tweet' ).on("mouseover",".user", function( ) {
-                    $(this).css("background-color", "green");
+                    $(this).css("background-color", "silver");
                     });
                     $('.tweet').on("mouseout",".user", function( ) {
                       $(this).css('background-color', 'white')
@@ -56,20 +56,21 @@
 
           var tweet = streams.home[index];
 
-
           var $tweet = $('<div class="tweet"></div>');
           var $box = $('<div class="msgbox"></div>');
           var $user = $('<span class=user></span>');
           var $message =$('<span class=message></span>')
           var $timeStamp =$('<i class=tStamp></i>')
 
-            $tweet.appendTo($newsFeed);
-            $user.addClass(tweet.user).attr('data-user', tweet.user).text('@' + tweet.user +' ').appendTo($tweet)
-
-            $message.text(tweet.message).appendTo($tweet);
-            $timeStamp.text(tweet.created_at).appendTo($tweet);
+          $tweet.appendTo($newsFeed);
+          //Adds user to tweet
+          $user.addClass(tweet.user).attr('data-user', tweet.user).text('@' + tweet.user +' ').appendTo($tweet)
+          // adds message to tweet
+          $message.text(tweet.message).appendTo($tweet);
+          //adds timestamp to message
+          $timeStamp.text(tweet.created_at).appendTo($tweet);
           index -= 1;
-          // deos not add to tweet counter as it regenerates the etnire list
+          // does not add to tweet counter as it regenerates the etnire list
         }
       }
 // generate random tweets on open.
@@ -94,7 +95,7 @@
             $message.text(tweet.message).appendTo($tweet);
             $timeStamp.text(tweet.created_at).appendTo($tweet);
           index -= 1;
-          tweetCounter += 1;
+
 
           highlighter();
         }
@@ -110,7 +111,7 @@
 
             highlighter()
           })
-        highlighter();
+
 
         });
 
@@ -118,54 +119,3 @@
     </script>
   </body>
 </html>
-<!-- Final reviewed to meet minimum requirments for requested changes 6/19/20 -->
-
-
-
-
-<!-- //Generating button and New Tweet
-var $button = $("<input class='btnRef' type=button value=' New Tweet'>");
-$button.appendTo('.header');
-$button.on('click', function () {
-
-  $('div').remove('.tweet')
-  regenerateList();
-
-//   // generateRandomTweet();
-//    var index = streams.home.length - 1;
-// while(tweetCounter <=  index){
-
-//     var tweet = streams.home[tweetCounter];
-//     //break my loop if their is no message in the streams.home
-
-
-
-// Generattes new tweets.
-
-      // var tweet = generateRandomTweet()
-      // var newTweet = streams.home[index];
-
-
-    // var $ntweet = $('<div class="tweet"></div>');
-    // var $nmessage =$('<span class=message></span>');
-    // var $nuser = $('<span class=user></span>');
-    // var $nTimeStamp =$('<i class=tStamp></i>');
-
-
-    //   $ntweet.appendTo($newsFeed);
-    //   $nuser.addClass(tweet.user).attr('data-user', tweet.user).text('@' + tweet.user +' ').appendTo($ntweet)
-    //   $nmessage.text(tweet.message).appendTo($ntweet)
-    //   $nTimeStamp.text(tweet.created_at).appendTo($ntweet);
-    //   tweetCounter += 1;
-
-
-    highlighter()
-  })
-highlighter();
-
-
-});
-
-
-
-//  }); -->
