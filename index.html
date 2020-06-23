@@ -8,7 +8,7 @@
   </head>
   <body>
       <img src="https://www.fillmurray.com/100/150" alt="profilePhoto">
-      <h1 class="header">Ryan's Twiddler<i id="userHandel">@maybeMurray402</i></h1>
+      <h1 class="header">Ryan's Twiddler<i id=userHandel>@maybeMurray402</i></h1>
 
       </div>
     </div>
@@ -16,48 +16,40 @@
 
       $(document).ready(function(){
         var $body = $('body');
-        var $newsFeed = $('<div class=feed></div>');
+        var $newsFeed = $('<div class=feed><h1>News Feed</h2</div>');
         $newsFeed.appendTo($body);
         // $body.html('');
-        var $userFeed = $('<div class=ufeed></div>');
+        var $userFeed = $('<div class=ufeed><h1 class=userfeed>User Feed</h1></div>');
         $userFeed.appendTo($body);
+        $('.userfeed').hide();
         var tweetCounter = 0;
 
         //function for my highlighter /Click listener / tweet slecter
         var highlighter =function(){
 
                   $('.tweet' ).on("mouseover",".user", function( ) {
-                    event.preventDefault();
-                  $(this).css("background-color", "green");
+                    $(this).css("background-color", "green");
                     });
-
                     $('.tweet').on("mouseout",".user", function( ) {
-
-                    $(this).css('background-color', 'white')
+                      $(this).css('background-color', 'white')
                     });
 
+                    //Function select a user and send it to the selected user feed.
+              $('.tweet' ).on("click",".user", function  (event) {
+                     $('.userfeed').show()
+                      var user = $(this).data('user');
+                    $('.ufeed div').remove('.tweet')
+                    $("div:contains('" + user +"')").appendTo($userFeed)
+                    $('.feed div').remove('.tweet')
+                    regenerateList()
+                    highlighter()
+                    $newsFeed.appendTo($body)
 
-                    $('.tweet' ).on("click",".user", function( ) {
-                    event.preventDefault();
-                  var user = $(this).data('user');
-
-
-                  $('.tweet').not("div:contains('" + user + ")").appendTo('.feed')
-
-                  $("div:contains('" + user +"')").appendTo($userFeed)
-
-
-                  $newsFeed.appendTo($body)
-                  // $newsFeed.remove();
-
-                  $button.appendTo('.header')
-                  });
+                });
+          }
 
 
-                      }
-
-
-// Regenerate newsFeed after refreshß
+// Regenerate newsFeed after refresh
       var regenerateList = function(){
         var index = streams.home.length - 1;
               while(index >= 0){
@@ -107,58 +99,73 @@
           highlighter();
         }
 
-
-
-          //Generating button and New Tweet
-        var $button = $("<input class='btnRef' type=button value=' New Tweet'>");
+          //Generating  refresh button
+        var $button = $("<input class='btnRef' type=button value=' Refresh feed'>");
         $button.appendTo('.header');
         $button.on('click', function () {
 
+          $('div').remove('.tweet')
+          $('.userfeed').hide();
+          regenerateList();
 
-          // generateRandomTweet();
-           var index = streams.home.length - 1;
-        while(tweetCounter <=  index){
-
-            var tweet = streams.home[tweetCounter];
-            //break my loop if their is no message in the streams.home
-
-
-
-        // Generattes new tweets.
-
-              // var tweet = generateRandomTweet()
-              // var newTweet = streams.home[index];
-
-
-            var $ntweet = $('<div class="tweet"></div>');
-            var $nmessage =$('<span class=message></span>');
-            var $nuser = $('<span class=user></span>');
-            var $nTimeStamp =$('<i class=tStamp></i>');
-
-
-              $ntweet.appendTo($newsFeed);
-              $nuser.addClass(tweet.user).attr('data-user', tweet.user).text('@' + tweet.user +' ').appendTo($ntweet)
-              $nmessage.text(tweet.message).appendTo($ntweet)
-              $nTimeStamp.text(tweet.created_at).appendTo($ntweet);
-              tweetCounter += 1;
-
-
-
-          }
+            highlighter()
+          })
         highlighter();
 
-
         });
-
-
-
-       });
-
-
-
 
 
     </script>
   </body>
 </html>
 <!-- Final reviewed to meet minimum requirments for requested changes 6/19/20 -->
+
+
+
+
+<!-- //Generating button and New Tweet
+var $button = $("<input class='btnRef' type=button value=' New Tweet'>");
+$button.appendTo('.header');
+$button.on('click', function () {
+
+  $('div').remove('.tweet')
+  regenerateList();
+
+//   // generateRandomTweet();
+//    var index = streams.home.length - 1;
+// while(tweetCounter <=  index){
+
+//     var tweet = streams.home[tweetCounter];
+//     //break my loop if their is no message in the streams.home
+
+
+
+// Generattes new tweets.
+
+      // var tweet = generateRandomTweet()
+      // var newTweet = streams.home[index];
+
+
+    // var $ntweet = $('<div class="tweet"></div>');
+    // var $nmessage =$('<span class=message></span>');
+    // var $nuser = $('<span class=user></span>');
+    // var $nTimeStamp =$('<i class=tStamp></i>');
+
+
+    //   $ntweet.appendTo($newsFeed);
+    //   $nuser.addClass(tweet.user).attr('data-user', tweet.user).text('@' + tweet.user +' ').appendTo($ntweet)
+    //   $nmessage.text(tweet.message).appendTo($ntweet)
+    //   $nTimeStamp.text(tweet.created_at).appendTo($ntweet);
+    //   tweetCounter += 1;
+
+
+    highlighter()
+  })
+highlighter();
+
+
+});
+
+
+
+//  }); -->
